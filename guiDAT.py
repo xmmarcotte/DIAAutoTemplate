@@ -6,6 +6,7 @@ import tkinter
 from tkinter import *
 import win32gui
 import win32con
+import re
 
 if sys.stdin.isatty():
     hide = win32gui.GetForegroundWindow()
@@ -162,6 +163,7 @@ def getInfo():
             wanIp = get_cell_by_column_name(row, 'WAN IP address (WAN Usable)').display_value
             carrier = get_cell_by_column_name(row, 'Carrier').display_value
             speed = get_cell_by_column_name(row, 'Speed').display_value
+            speed = re.sub('\D', '', speed)
             address = get_cell_by_column_name(row, "Customer Location").display_value
             address = usaddress.parse(address)
             address = dict(address)
