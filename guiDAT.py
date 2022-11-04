@@ -53,7 +53,7 @@ def main():
     x = ws / 2 - w / 2
     y = hs / 2 - h / 2
     main.geometry('%dx%d+%d+%d' % (w, h, x, y))
-    greeting = tkinter.Label(text='Please enter the ticket number:')
+    greeting = tkinter.Label(text='Please enter the ticket number: ')
     greeting.pack(pady=10)
     ticket = Entry(main)
     ticket.pack(pady=5)
@@ -87,7 +87,7 @@ def tryAgain():
     x = ws / 2 - w / 2
     y = hs / 2 - h / 2
     ta.geometry('%dx%d+%d+%d' % (w, h, x, y))
-    greeting = tkinter.Label(text='Ticket not found. Please re-enter the ticket number:')
+    greeting = tkinter.Label(text='Ticket not found. Please re-enter the ticket number: ')
     greeting.pack(pady=10)
     ticket = Entry(ta)
     ticket.pack(pady=5)
