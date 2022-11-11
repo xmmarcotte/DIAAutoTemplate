@@ -13,6 +13,10 @@ if sys.stdin.isatty():
     win32gui.ShowWindow(hide, win32con.SW_HIDE)
 
 
+def exitProg():
+    sys.exit()
+
+
 def splash():
     splash_win = Tk()
     splash_win.title('DIA Auto Template')
@@ -30,6 +34,7 @@ def splash():
     greeting = tkinter.Label(text='Author: Mikey Marcotte')
     greeting.pack()
     splash_win.after(3000, lambda: splash_win.destroy())
+    splash_win.protocol("WM_DELETE_WINDOW", exitProg)
     splash_win.mainloop()
 
 
@@ -64,6 +69,7 @@ def main():
            padx=0,
            pady=0,
            command=printValue2).pack()
+    main.protocol("WM_DELETE_WINDOW", exitProg)
     main.mainloop()
 
 
@@ -99,6 +105,7 @@ def tryAgain():
            pady=0,
            command=printValue2).pack()
     ta.bind('<Return>', printValue)
+    ta.protocol("WM_DELETE_WINDOW", exitProg)
     ta.mainloop()
 
 
@@ -119,6 +126,7 @@ def popUp():
     text.insert(END, write)
     v.config(command=text.yview)
     text.pack()
+    win.protocol("WM_DELETE_WINDOW", exitProg)
     win.mainloop()
 
 
@@ -180,7 +188,7 @@ while not exists:
     tryAgain()
     getInfo()
 if configType == '4K series RJ45':
-    write=f"""hostname {hostname}
+    write = f"""hostname {hostname}
 enable secret Granite1!
 username GraniteNOC secret Gran1te0ff
 username ADSOffnet secret {password}
@@ -344,7 +352,7 @@ sh run
 """
 
 elif configType == '4K series with SFP':
-    write=f"""hostname {hostname}
+    write = f"""hostname {hostname}
 enable secret Granite1!
 username GraniteNOC secret Gran1te0ff
 username ADSOffnet secret {password}
@@ -510,7 +518,7 @@ sh run
 """
 
 elif configType == 'Offnet_ASR-920_Copper_LAN':
-    write=f"""!
+    write = f"""!
 version 15.6
 no service pad
 service timestamps debug datetime msec
@@ -786,7 +794,7 @@ end
 """
 
 elif configType == 'Offnet_ASR-920_Fiber_LAN':
-    write=f"""hostname {hostname}
+    write = f"""hostname {hostname}
 
 boot-start-marker	
 boot-end-marker
@@ -1055,7 +1063,7 @@ end
 """
 
 elif configType == 'Offnet_ASR-920_24Port_Fiber_LAN':
-    write=f"""hostname {hostname}
+    write = f"""hostname {hostname}
 
 boot-start-marker	
 boot-end-marker
@@ -1324,7 +1332,7 @@ end
 """
 
 elif configType == 'Offnet_ASR-920_DHCP_LAN_POOL':
-    write=f"""!
+    write = f"""!
 version 15.6
 no service pad
 service timestamps debug datetime msec
