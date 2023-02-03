@@ -183,7 +183,10 @@ def getInfo():
 
 splash()
 main()
-getInfo()
+try:
+    getInfo()
+except Exception as e:
+    write = e
 while not exists:
     tryAgain()
     getInfo()
