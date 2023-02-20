@@ -218,7 +218,7 @@ could be subject to criminal and civil penalties.
 
 interface GigabitEthernet0/0/0
 description To {carrier} WAN CID {cktId} // {account}
-ip address {wanIp}
+ip address {wanIp} {wanSubnet}
 no negotiation auto
 media-type  RJ45
 speed 100
@@ -228,7 +228,7 @@ exit
 
 interface GigabitEthernet0/0/1
 description To LAN
-ip address {lanGateway}
+ip address {lanGateway} {lanSubnet}
 negotiation auto
 no shutdown
 
@@ -385,7 +385,7 @@ could be subject to criminal and civil penalties.
 
 interface GigabitEthernet0/0/0
 description To {carrier} WAN CID {cktId} // {account}
-ip address {wanIp}
+ip address {wanIp} {wanSubnet}
 no negotiation auto
 media-type  sfp
 no shutdown
@@ -394,7 +394,7 @@ exit
 
 interface GigabitEthernet0/0/1
 description To LAN
-ip address {lanGateway}
+ip address {lanGateway} {lanSubnet}
 negotiation auto
 no shutdown
 
