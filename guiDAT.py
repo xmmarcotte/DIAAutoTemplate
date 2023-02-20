@@ -204,7 +204,7 @@ service password-encryption
 ip domain name granitenet.com
 
 
-crypto key generate rsa modulus 1024
+crypto key generate rsa modulus 2048
 
 ip ssh version 2
 banner motd #
@@ -368,7 +368,7 @@ service password-encryption
 ip domain name granitenet.com
 
 
-crypto key generate rsa modulus 1024
+crypto key generate rsa modulus 2048
 
 
 
@@ -632,7 +632,7 @@ monitoring
 !
 ! 
 !
-crypto key generate rsa modulus 1024
+crypto key generate rsa modulus 2048
 !
 !
 !
@@ -894,7 +894,7 @@ monitoring
 
 
 
-crypto key generate rsa modulus 1024	  
+crypto key generate rsa modulus 2048	  
 
 
 ip dhcp pool Mgmt-intf
@@ -1163,7 +1163,7 @@ monitoring
 
 
 
-crypto key generate rsa modulus 1024	  
+crypto key generate rsa modulus 2048	  
 
 
 ip dhcp pool Mgmt-intf
@@ -1451,7 +1451,7 @@ monitoring
 !
 ! 
 !
-crypto key generate rsa modulus 1024
+crypto key generate rsa modulus 2048
 !
 !
 !
