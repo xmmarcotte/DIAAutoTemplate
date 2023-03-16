@@ -167,7 +167,7 @@ def getInfo():
             cktId = get_cell_by_column_name(row, 'circuit ID').display_value
             wanSubnet = get_cell_by_column_name(row, 'WAN subnet mask').display_value
             wanGateway = get_cell_by_column_name(row, 'WAN gateway.').display_value
-            lanIp = get_cell_by_column_name(row, 'LAN IP (LAN Network IP)').display_value
+            lanIp = get_cell_by_column_name(row, 'LAN IP (LAN Usable IP)').display_value
             wanIp = get_cell_by_column_name(row, 'WAN IP address (WAN Usable)').display_value
             carrier = get_cell_by_column_name(row, 'Carrier').display_value
             speed = get_cell_by_column_name(row, 'Speed').display_value

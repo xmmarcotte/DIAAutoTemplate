@@ -1,7 +1,7 @@
 import smartsheet
 from geopy.geocoders import Nominatim
 import usaddress
-import sys
+import json
 import re
 import logging
 import os
@@ -63,16 +63,19 @@ class Attachments:
 
 def attach_file():
     newfile = f'{hostname}.txt'
+    print(newfile)
     with open(newfile, 'w') as f:
         f.write(write)
-
-    updated_attachment = smart.Attachments.attach_file_to_row(
-        sheet_id,  # sheet_id
-        row_id,  # row_id
-        (newfile,
-         open(newfile, 'rb'),
-         'application/notepad')
-    )
+    try:
+        print(json.loads(str(smart.Search.search_sheet(sheet_id=8499987391768452, query=newfile)))["results"]["text"])
+    except:
+        updated_attachment = smart.Attachments.attach_file_to_row(
+            sheet_id,  # sheet_id
+            row_id,  # row_id
+            (newfile,
+             open(newfile, 'rb'),
+             'application/notepad')
+            )
     f.close()
     os.remove(newfile)
 
@@ -95,7 +98,7 @@ for row in sheet.rows:
     cktId = get_cell_by_column_name(row, 'circuit ID').display_value
     wanSubnet = get_cell_by_column_name(row, 'WAN subnet mask').display_value
     wanGateway = get_cell_by_column_name(row, 'WAN gateway.').display_value
-    lanIp = get_cell_by_column_name(row, 'LAN IP (LAN Network IP)').display_value
+    lanIp = get_cell_by_column_name(row, 'LAN IP (LAN Usable IP)').display_value
     wanIp = get_cell_by_column_name(row, 'WAN IP address (WAN Usable)').display_value
     carrier = get_cell_by_column_name(row, 'Carrier').display_value
     speed = get_cell_by_column_name(row, 'Speed').display_value
